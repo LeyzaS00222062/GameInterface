@@ -18,7 +18,7 @@ namespace GameInterface.Tests
         { 
 
             // Arrange
-            var mockDiscountService = new Mock<Services.IDiscountService>();
+            var mockDiscountService = new Mock<Services.DiscountService>();
             mockDiscountService.Setup(x => x.GetDiscount()).Returns(0.9);
             var myIS = new Services.InsuranceService(mockDiscountService.Object);
 
@@ -36,13 +36,13 @@ namespace GameInterface.Tests
 
         // This is the test class for the InsuranceService
         // Our Unit Tests
-        private Mock<IDiscountService> _mockDiscountService = null!;
+        private Mock<DiscountService> _mockDiscountService = null!;
         private InsuranceService _premiumService = null!;
 
         [SetUp]
         public void Setup()
         {
-            _mockDiscountService = new Mock<IDiscountService>();
+            _mockDiscountService = new Mock<DiscountService>();
             _premiumService = new InsuranceService(_mockDiscountService.Object);
         }
 

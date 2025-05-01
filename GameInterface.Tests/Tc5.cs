@@ -12,9 +12,9 @@ namespace SeleniumTests
   //  [TestFixture]
     public class Tc5
     {
-        private IWebDriver driver;
-        private StringBuilder verificationErrors;
-        private string baseURL;
+        private IWebDriver? driver;
+        private StringBuilder? verificationErrors;
+        private string? baseURL;
         private bool acceptNextAlert = true;
         
         [SetUp]

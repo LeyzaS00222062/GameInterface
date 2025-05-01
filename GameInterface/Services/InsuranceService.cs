@@ -6,11 +6,20 @@
     {
         double GetDiscount();
     }
+
+    public class DiscountService : IDiscountService
+    {
+        public double GetDiscount()
+        {
+            return 0.9; 
+        }
+    }
+
     public class InsuranceService
     {
-        private readonly IDiscountService _discountService;
+        private readonly DiscountService _discountService;
 
-        public InsuranceService(IDiscountService discountService)
+        public InsuranceService(DiscountService discountService)
         {
             _discountService = discountService;
         }
@@ -25,9 +34,10 @@
                 else if (age >= 31) 
                     premium = 2.5;
             }
+
             else if (gameMode == "Hardcore")
             {
-                if (age >= 10 && age <= 35) 
+                if (age >= 18 && age <= 35) 
                     premium = 6.0;
                 else if (age >= 36) 
                     premium = 5.0;
@@ -40,10 +50,10 @@
                 premium = premium * discount;
             }
 
-            if (premium > 0)
-                return premium;
-            else
-                return 0.0; // Return 0 for invalid inputs
+            
+            return premium;
+            
+               
         }
     }
 

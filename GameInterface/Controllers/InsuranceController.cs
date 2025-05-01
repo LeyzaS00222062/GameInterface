@@ -12,7 +12,7 @@ namespace YourProject.Controllers
 
         public InsuranceController()
         {
-            var mockDiscountService = new Mock<IDiscountService>();
+            var mockDiscountService = new Mock<DiscountService>();
             _insuranceService = new InsuranceService(mockDiscountService.Object);
         }
 
