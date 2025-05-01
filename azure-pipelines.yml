@@ -16,21 +16,27 @@ steps:
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
-    version: '17.13.0' # change to your version, like 6.0.400 or 7.0.203
+    version: '7.0.x' # change to your version, like 6.0.400 or 7.0.203
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
-    projects: 'GameInterface.csproj'
+    projects: '**/GameInterface.csproj'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: 'GameInterface.csproj'
+    projects: '**/GameInterface.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: 'GameInterface.Tests.csproj'
-    arguments: '--configuration $(buildConfiguration)'
+    projects: '**/GameInterface.Tests.csproj'
+    arguments: '--configuration $(buildConfiguration) --logger trx'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '**/TestResults/*.trx'
+    failTaskOnFailedTests: true
