@@ -16,7 +16,7 @@ steps:
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
-    version: '7.0.203' # change to your version, like 6.0.400 or 7.0.203
+    version: '17.13.0' # change to your version, like 6.0.400 or 7.0.203
 
 - task: DotNetCoreCLI@2
   inputs:
