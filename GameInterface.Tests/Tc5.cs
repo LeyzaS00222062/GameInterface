@@ -42,6 +42,7 @@ namespace SeleniumTests
         [Test]
         public void TheTc5Test()
         {
+            Assert.That(driver, Is.Not.Null, "Driver is null in test method.");
             driver.Navigate().GoToUrl("https://localhost:7120/");
             driver.FindElement(By.Name("age")).Click();
             driver.FindElement(By.Name("age")).Clear();

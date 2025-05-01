@@ -9,10 +9,7 @@
 
     public class DiscountService : IDiscountService
     {
-        public double GetDiscount()
-        {
-            return 0.9; 
-        }
+        public double GetDiscount() => 0.9; // 10% discount for age 50 and above
     }
 
     public class InsuranceService
@@ -27,7 +24,7 @@
         {
             double premium = 0.0;
 
-            if (gameMode == "Casual")
+            if (gameMode == "casual")
             {
                 if (age >= 18 && age <= 30) 
                     premium = 5.0;
@@ -35,7 +32,7 @@
                     premium = 2.5;
             }
 
-            else if (gameMode == "Hardcore")
+            else if (gameMode == "hardcore")
             {
                 if (age >= 18 && age <= 35) 
                     premium = 6.0;
@@ -46,8 +43,8 @@
 
             if (age >= 50)
             {
-                double discount = _discountService.GetDiscount();
-                premium = premium * discount;
+                
+                premium *= _discountService.GetDiscount(); // Apply discount for age 50 and above
             }
 
             
