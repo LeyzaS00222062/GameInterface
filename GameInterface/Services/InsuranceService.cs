@@ -26,7 +26,7 @@
 
             if (gameMode == "Casual")
             {
-                if (age >= 18 && age <= 35) 
+                if (age >= 18 && age <= 30) 
                     premium = 5.0;
                 else if (age >= 31) 
                     premium = 2.5;
