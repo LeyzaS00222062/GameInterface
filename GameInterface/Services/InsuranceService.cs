@@ -24,15 +24,15 @@
         {
             double premium = 0.0;
 
-            if (gameMode == "casual")
+            if (gameMode == "Casual")
             {
-                if (age >= 18 && age <= 30) 
+                if (age >= 18 && age <= 35) 
                     premium = 5.0;
                 else if (age >= 31) 
                     premium = 2.5;
             }
 
-            else if (gameMode == "hardcore")
+            else if (gameMode == "Hardcore")
             {
                 if (age >= 18 && age <= 35) 
                     premium = 6.0;

@@ -29,7 +29,7 @@ namespace GameInterface.Tests
         public void CalcPremium_Casual_Age25_Returns5()
         {
             // Act
-            var result = _premiumService.CalcPremium(25, "casual");
+            var result = _premiumService.CalcPremium(25, "Casual");
 
             // Assert
             Assert.That(result, Is.EqualTo(5.0));
@@ -43,7 +43,7 @@ namespace GameInterface.Tests
             _mockDiscountService.Setup(x => x.GetDiscount()).Returns(0.9);
 
             // Act
-            var result = _premiumService.CalcPremium(50, "hardcore");
+            var result = _premiumService.CalcPremium(50, "Hardcore");
 
             // Assert
             Assert.That(result, Is.EqualTo(4.5));
@@ -54,8 +54,8 @@ namespace GameInterface.Tests
         public void CalcPremium_AgeBelow18_Returns0()
         {
             // Act
-            var resultCasual = _premiumService.CalcPremium(17, "casual");
-            var resultHardcore = _premiumService.CalcPremium(17, "hardcore");
+            var resultCasual = _premiumService.CalcPremium(17, "Casual");
+            var resultHardcore = _premiumService.CalcPremium(17, "Hardcore");
 
             // Assert
             Assert.That(resultCasual, Is.EqualTo(0.0));
@@ -66,7 +66,7 @@ namespace GameInterface.Tests
         public void CalcPremium_Casual_AgeAbove30_Returns2_5()
         {
             // Act
-            var result = _premiumService.CalcPremium(35, "casual");
+            var result = _premiumService.CalcPremium(35, "Casual");
 
             // Assert
             Assert.That(result, Is.EqualTo(2.5));
