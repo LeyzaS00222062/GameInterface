@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Game Equipment Insurance";
+}
+
+<h2>Game Equipment Insurance Calculator</h2>
+
+<form method="post" asp-controller="Insurance" asp-action="Calculate">
+    <label>Player Age:</label>
+    <input type="number" name="age" min="1" max="100" required><br><br>
+
+    <label>Select Game Mode:</label>
+    <select name="gameMode">
+        <option value="Casual">Casual</option>
+        <option value="Hardcore">Hardcore</option>
+    </select><br><br>
+
+    <button type="submit">Get Insurance Cost</button>
+</form>
+
+@if (ViewBag.Premium != null)
+{
+    <p>@ViewBag.Premium</p>
+}
